@@ -1,0 +1,15 @@
+.SearchBar {
+  &__input {
+    margin: 25px 0;
+    border: none;
+    border-color: transparent;
+    border-bottom: 2px solid black;
+    height: 33px;
+    width: calc(100%);
+
+    &:hover,
+    &:focus {
+      border-color: #a040a0;
+    }
+  }
+}

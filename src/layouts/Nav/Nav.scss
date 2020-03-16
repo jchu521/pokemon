@@ -1,0 +1,33 @@
+.Navbar {
+  position: fixed;
+  height: 65px;
+  background-color: #a040a0;
+
+  &--sidebar {
+    &--opened {
+      width: 80%;
+      left: 20%;
+    }
+
+    &--closed {
+      width: 100%;
+      left: 0;
+    }
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__main__icon {
+    margin-left: 20px;
+
+    svg {
+      fill: white;
+      width: 25px;
+      height: 25px;
+    }
+  }
+}

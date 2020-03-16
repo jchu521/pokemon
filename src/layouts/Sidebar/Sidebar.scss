@@ -1,0 +1,32 @@
+.Sidebar {
+  position: fixed;
+  width: 20%;
+  height: 100vh;
+  border-right: 1px solid #ccc;
+
+  &__menu {
+    &__title {
+      font-weight: 400;
+      font-size: 20px;
+    }
+
+    &__list {
+      height: 65px;
+      line-height: 65px;
+      padding-left: 20px;
+
+      a {
+        text-decoration: none;
+        &:active,
+        &:visited,
+        &:-webkit-any-link {
+          color: black;
+        }
+      }
+
+      &:nth-child(1) {
+        border-bottom: 1px solid #ccc;
+      }
+    }
+  }
+}

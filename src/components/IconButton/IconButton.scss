@@ -1,0 +1,23 @@
+@import "../../styles/variables.scss";
+
+.Icon {
+  &__Button {
+    @include svg-fill(white, 25px, 25px);
+    outline: none;
+    cursor: pointer;
+
+    &--circle {
+      svg {
+        border-radius: 50%;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      svg {
+        outline: -webkit-focus-ring-color auto 5px;
+        background-color: rgba(0, 0, 0, 0.27);
+      }
+    }
+  }
+}
