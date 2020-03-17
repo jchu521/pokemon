@@ -7,7 +7,7 @@ export const fetchApi = (fetchFunc, dispatchFunc) => dispatch => {
     .then(data => {
       dispatchFunc(data);
     })
-    .then(res => {
+    .then(() => {
       dispatch(fetchCompleted());
     })
     .catch(err => {
