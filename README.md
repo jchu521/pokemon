@@ -7,3 +7,5 @@ https://dev.to/jamesliudotcc/how-to-use-async-await-with-map-and-promise-all-1gb
 https://gist.github.com/agarie/2610520
 
 https://reactjs.org/docs/react-api.html#reactmemo
+
+https://blog.emumba.com/usereducer-with-logger-and-thunk-middlewares-customhook-907e0b87082f
