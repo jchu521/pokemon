@@ -5,3 +5,5 @@
 https://dev.to/jamesliudotcc/how-to-use-async-await-with-map-and-promise-all-1gb5
 
 https://gist.github.com/agarie/2610520
+
+https://reactjs.org/docs/react-api.html#reactmemo

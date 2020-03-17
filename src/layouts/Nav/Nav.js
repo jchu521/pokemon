@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 //component
 import IconButton from "../../components/IconButton/IconButton";
@@ -40,7 +40,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  changeOpenSidebar: payload => dispatch(handleOpenSidebar(payload))
+  changeOpenSidebar: useCallback(
+    payload => dispatch(handleOpenSidebar(payload)),
+    [dispatch]
+  )
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Nav);

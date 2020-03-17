@@ -16,7 +16,7 @@ export const connect = (mapStateToProps, mapDispatchToProps) => {
         const dispatchToProps = mapDispatchToProps(dispatch);
         props = { ...props, ...dispatchToProps };
       }
-      // const props = { ...props, ...stateToProps, ...dispatchToProps };
+
       return <Component {...props} />;
     };
   };

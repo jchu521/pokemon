@@ -1,4 +1,9 @@
+import { rootReducer } from "../redux/reducers/rootReducer";
+
+export const rootState = rootReducer(undefined, { type: undefined });
+
 export const initialState = {
+  ...rootState,
   other: {
     openSideBar: true,
     menuItems: [

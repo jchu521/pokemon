@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import { pokemonTypeColors } from "../../utils/constant";
 const url = process.env.POKE_API;
 
 export const fetchPokemons = (offset = 0, limit = 10) => {
@@ -9,12 +9,13 @@ export const fetchPokemons = (offset = 0, limit = 10) => {
     .then(data => {
       //https://dev.to/jamesliudotcc/how-to-use-async-await-with-map-and-promise-all-1gb5
       return Promise.all(
-        data.map((p, i) =>
-          getPokemonInfo(i + 1).then(d => ({
+        data.map((p, i) => {
+          return getPokemonInfo(i + 1).then(d => ({
             ...d,
-            img: getPokemonsImage(i + 1)
-          }))
-        )
+            img: getPokemonsImage(i + 1),
+            typesColor: d.types.map(t => pokemonTypeColors[t.type.name])
+          }));
+        })
       );
     })
     .catch(err => {

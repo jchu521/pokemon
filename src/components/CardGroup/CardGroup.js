@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo } from "react";
 
 //components
 import Card from "../Card/Card";
 //style
 import "./CardGroup.scss";
 
-export default function CardGroup({ number, data }) {
+const CardGroup = memo(({ number, data }) => {
   const [cardGroup, setCardGroup] = useState(null);
 
   const init = () => {
@@ -13,9 +13,6 @@ export default function CardGroup({ number, data }) {
     const group = [];
 
     data.forEach((d, i) => {
-      const { types } = d;
-      const pokemonTypes = types.map(t => t.type.name);
-      console.log(pokemonTypes);
       if ((i + 1) % number === 0) {
         cards.push(
           <Card
@@ -23,7 +20,13 @@ export default function CardGroup({ number, data }) {
             img={d.img}
             title={d.name}
             type="button"
-            types={pokemonTypes}
+            cardStyle={{
+              background:
+                d.typesColor.length > 1
+                  ? `linear-gradient(90deg, ${d.typesColor[0]} 50%, ${d.typesColor[1]} 50%)`
+                  : d.typesColor[0]
+            }}
+            cardClassName={d.types.map(t => t.type.name).join(" ")}
           />
         );
         group.push(
@@ -40,7 +43,13 @@ export default function CardGroup({ number, data }) {
             img={d.img}
             title={d.name}
             type="button"
-            types={pokemonTypes}
+            cardStyle={{
+              background:
+                d.typesColor.length > 1
+                  ? `linear-gradient(90deg, ${d.typesColor[0]} 50%, ${d.typesColor[1]} 50%)`
+                  : d.typesColor[0]
+            }}
+            cardClassName={d.types.map(t => t.type.name).join(" ")}
           />
         );
       }
@@ -52,4 +61,6 @@ export default function CardGroup({ number, data }) {
   useEffect(init, [data]);
 
   return <>{cardGroup}</>;
-}
+});
+
+export default CardGroup;

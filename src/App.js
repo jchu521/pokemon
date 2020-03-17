@@ -12,8 +12,9 @@ import { connect } from "./utils/connect";
 import "./App.scss";
 
 function App(props) {
-  const { openSideBar } = props.other;
+  console.log(props);
 
+  const { openSideBar } = props.other;
   return (
     <>
       <Nav />
@@ -23,8 +24,10 @@ function App(props) {
   );
 }
 
-const mapStateToProps = state => ({
-  other: state.other
-});
+// const mapStateToProps = state => ({
+//   other: state.other
+// });
+
+const mapStateToProps = state => state;
 
 export default connect(mapStateToProps, null)(App);
