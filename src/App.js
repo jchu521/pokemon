@@ -5,14 +5,10 @@ import { Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import PokemonPage from "./pages/PokemonPage/PokemonPage";
 
-//utils
-import { connect } from "./utils/connect";
 //style
 import "./App.scss";
 
 function App(props) {
-  const { openSideBar } = props.other;
-
   return (
     <>
       <Route exact path="/" component={Home} />
@@ -21,10 +17,4 @@ function App(props) {
   );
 }
 
-// const mapStateToProps = state => ({
-//   other: state.other
-// });
-
-const mapStateToProps = state => state;
-
-export default connect(mapStateToProps, null)(App);
+export default App;

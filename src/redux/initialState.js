@@ -6,6 +6,7 @@ export const initialState = {
   ...rootState,
   other: {
     openSideBar: true,
+    search: "",
     menuItems: [
       { name: "Pokedex.org" },
       { name: "Pokémon", href: "" },

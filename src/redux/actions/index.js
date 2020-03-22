@@ -1,5 +1,5 @@
 import { fetchApi, loading, fetchCompleted, fetchFailed } from "./fetchAction";
-import { handleOpenSidebar } from "./othersAction";
+import { handleOpenSidebar, handleSearch } from "./othersAction";
 import { savePokemons } from "./pokemonAction";
 
 export default {
@@ -10,6 +10,7 @@ export default {
   fetchFailed,
   //other actions
   handleOpenSidebar,
+  handleSearch,
   //pokemon actions
   savePokemons
 };
