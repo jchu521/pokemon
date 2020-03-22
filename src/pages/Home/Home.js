@@ -17,10 +17,27 @@ import actions from "../../redux/actions";
 import "./Home.scss";
 
 function Home({ other, savePokemons, fetch, pokemonsInfo, fetchApi }) {
-  const { openSideBar, pages } = other;
+  const { openSideBar, pages, search } = other;
+  const [pokemons, setPokemons] = useState([]);
+
   useEffect(() => {
     fetchApi(fetchPokemons, savePokemons);
   }, []);
+
+  useEffect(() => {
+    if (pokemonsInfo && pokemonsInfo.pokemons) {
+      if (search !== "") {
+        const searchPokemons = pokemonsInfo.pokemons.filter(p => {
+          var regex = new RegExp(search, "g");
+          return p.name.match(regex);
+        });
+
+        setPokemons(searchPokemons);
+      } else {
+        setPokemons(pokemonsInfo.pokemons);
+      }
+    }
+  }, [search, pokemonsInfo]);
 
   return (
     <>
@@ -32,9 +49,7 @@ function Home({ other, savePokemons, fetch, pokemonsInfo, fetchApi }) {
         <h1 className="Home--header">{pages[0].title}</h1>
         <SearchBar placeholder="Search for Pokémon" />
         <div className="Home--pokemon--cards">
-          {fetch.loading ? null : (
-            <CardGroup number={5} data={pokemonsInfo.pokemons} />
-          )}
+          <CardGroup number={5} data={pokemons} />
         </div>
       </div>
     </>

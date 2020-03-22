@@ -8,7 +8,7 @@ import PokemonPage from "./pages/PokemonPage/PokemonPage";
 //style
 import "./App.scss";
 
-function App(props) {
+function App() {
   return (
     <>
       <Route exact path="/" component={Home} />

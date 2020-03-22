@@ -11,10 +11,11 @@ const CardGroup = memo(({ number, data, history }) => {
   const handleOnClick = id => {
     history.push(`/pokemon/${id}`);
   };
-
+  console.log(data);
   const init = () => {
     let cards = [];
     const group = [];
+    const maxCards = data.length < number ? data.length : number;
 
     data.forEach((d, i) => {
       cards.push(
@@ -34,7 +35,7 @@ const CardGroup = memo(({ number, data, history }) => {
         />
       );
 
-      if ((i + 1) % number === 0) {
+      if ((i + 1) % maxCards === 0) {
         group.push(
           <div className={`CardGroup CardGroup--${number}`} key={i}>
             {cards}

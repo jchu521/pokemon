@@ -33,7 +33,7 @@ const mapDispatchToProps = dispatch => {
   const { handleSearch } = actions;
 
   return {
-    handleSearch: useCallback(text => dispatch(handleSearch(text)))
+    handleSearch: useCallback(text => dispatch(handleSearch(text)), [dispatch])
   };
 };
 
