@@ -1,10 +1,9 @@
 import React from "react";
+import { Route } from "react-router-dom";
 
-//layouts
-import Nav from "./layouts/Nav/Nav";
-import Sidebar from "./layouts/Sidebar/Sidebar";
-//components
+//pages
 import Home from "./pages/Home/Home";
+import PokemonPage from "./pages/PokemonPage/PokemonPage";
 
 //utils
 import { connect } from "./utils/connect";
@@ -12,14 +11,12 @@ import { connect } from "./utils/connect";
 import "./App.scss";
 
 function App(props) {
-  console.log(props);
-
   const { openSideBar } = props.other;
+
   return (
     <>
-      <Nav />
-      {openSideBar && <Sidebar />}
-      <Home />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/pokemon/:id" component={PokemonPage} />
     </>
   );
 }

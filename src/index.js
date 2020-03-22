@@ -1,6 +1,7 @@
 import "babel-polyfill";
 import React from "react";
 import ReactDOM from "react-dom";
+import { HashRouter } from "react-router-dom";
 import App from "./App";
 
 //redux
@@ -10,7 +11,9 @@ import { rootReducer } from "./redux/reducers/rootReducer";
 
 ReactDOM.render(
   <StateProvider initialState={initialState} reducer={rootReducer}>
-    <App />
+    <HashRouter>
+      <App />
+    </HashRouter>
   </StateProvider>,
   document.getElementById("root")
 );
