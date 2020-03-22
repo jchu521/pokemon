@@ -11,7 +11,6 @@ const CardGroup = memo(({ number, data, history }) => {
   const handleOnClick = id => {
     history.push(`/pokemon/${id}`);
   };
-  console.log(data);
   const init = () => {
     let cards = [];
     const group = [];

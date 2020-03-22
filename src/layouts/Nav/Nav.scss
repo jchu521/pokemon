@@ -2,6 +2,7 @@
   position: fixed;
   height: 65px;
   background-color: #a040a0;
+  z-index: 5;
 
   &--sidebar {
     &--opened {

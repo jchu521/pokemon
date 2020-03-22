@@ -2,7 +2,7 @@ import axios from "axios";
 import { pokemonTypeColors } from "../../utils/constant";
 const url = process.env.POKE_API;
 
-export const fetchPokemons = (offset = 0, limit = 10) => {
+export const fetchPokemons = (offset = 0, limit = 807) => {
   return axios
     .get(`${url}/pokemon?offset=${offset}&limit=${limit}`)
     .then(res => res.status === 200 && res.data.results)

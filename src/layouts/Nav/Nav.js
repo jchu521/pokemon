@@ -12,10 +12,11 @@ import "./Nav.scss";
 import { handleOpenSidebar } from "../../redux/actions/othersAction";
 
 function Nav(props) {
-  const { other, changeOpenSidebar } = props;
+  const { other, changeOpenSidebar, navRef } = props;
 
   return (
     <nav
+      ref={navRef}
       className={`Navbar Navbar--sidebar--${
         other.openSideBar ? "opened" : "closed"
       }`}

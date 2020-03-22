@@ -8,26 +8,28 @@ import useDebounce from "../../utils/useDebounce";
 //style
 import "./SearchBar.scss";
 
-const SearchBar = memo(({ placeholder, ariaLabel, handleSearch }) => {
-  const [searchText, setSearchText] = useState("");
-  const debouncedValue = useDebounce(searchText, 500);
+const SearchBar = memo(
+  ({ searchRef, placeholder, ariaLabel, handleSearch }) => {
+    const [searchText, setSearchText] = useState("");
+    const debouncedValue = useDebounce(searchText, 500);
 
-  useEffect(() => {
-    handleSearch(debouncedValue);
-  }, [debouncedValue]);
+    useEffect(() => {
+      handleSearch(debouncedValue);
+    }, [debouncedValue]);
 
-  return (
-    <div className="SearchBar">
-      <input
-        className="SearchBar__input"
-        aria-label={ariaLabel}
-        placeholder={placeholder}
-        value={searchText}
-        onChange={e => setSearchText(e.target.value)}
-      />
-    </div>
-  );
-});
+    return (
+      <div ref={searchRef} className="SearchBar">
+        <input
+          className="SearchBar__input"
+          aria-label={ariaLabel}
+          placeholder={placeholder}
+          value={searchText}
+          onChange={e => setSearchText(e.target.value)}
+        />
+      </div>
+    );
+  }
+);
 
 const mapDispatchToProps = dispatch => {
   const { handleSearch } = actions;
